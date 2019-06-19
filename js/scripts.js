@@ -37,7 +37,7 @@ for (var i=0; i<repository.length; i++){
     +repository[i].types
     + '</li></ul>'
     + '<div  class=" flex_item"> That\'s the bigger one!'
-    +' </div><br><br></div>');
+    +' </div></div>');
   }
   else {
     document.write(
@@ -49,7 +49,7 @@ for (var i=0; i<repository.length; i++){
     +repository[i].types
     + '</li></ul>'
     + '<div  class=" flex_item"> That\'s not the bigger one '
-    +'<br></div><br></div>');
+    +'</div></div>');
 
   }
 

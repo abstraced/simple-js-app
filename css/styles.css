@@ -65,6 +65,10 @@ body {
   flex-direction:row;
  justify-content: space-around;
 
+ }
+
+ .flex_item  {
+  margin:2%;
 
 
 
