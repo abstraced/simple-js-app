@@ -51,3 +51,7 @@ align-items: center;
   border-radius: 25px;
   margin:2%;
     }
+ .grid__item:hover {
+  background: red;
+
+ }

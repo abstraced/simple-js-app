@@ -37,7 +37,7 @@ var pos = theBiggerOne();
 document.write('<div class="grid">');
 for (var i=0; i<repository.length; i++){
 
-  document.write('<div class="grid__item"> <br> <h3>' + repository[i].name + '</h3> - Height: '+ repository[i].height+ 'm');
+  document.write('<div class="grid__item"> <br> <h3>' + repository[i].name + '</h3><ul> <li> Height: '+ repository[i].height+ 'm </li> <li>' +repository[i].types + '</li></ul>');
   if ( i=== pos){
   document.write(' That\'s the bigger one!');
 
