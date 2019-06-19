@@ -34,13 +34,14 @@ function theBiggerOne () {
 
 var pos = theBiggerOne();
 
+document.write('<div class="grid">');
 for (var i=0; i<repository.length; i++){
 
-  document.write('<br>' + repository[i].name + ' - Height: '+ repository[i].height+ 'm');
+  document.write('<div class="grid__item"> <br> <h3>' + repository[i].name + '</h3> - Height: '+ repository[i].height+ 'm');
   if ( i=== pos){
   document.write(' That\'s the bigger one!');
 
-  document.write('<br>' + '<br>')
+  document.write('<br>' + '<br></div>')
   }
-
+document.write('</div>');
 }
