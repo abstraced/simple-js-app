@@ -17,6 +17,50 @@ var repository= [
   }
 ]
 
+var pos = theBiggerOne();
+
+
+
+
+
+document.write('<div class="grid">');
+for (var i=0; i<repository.length; i++){
+
+
+  if ( i=== pos){
+    document.write(
+      '<div class="grid__item flex_grid">  <h3 class=" flex_item">'
+        + repository[i].name
+        + '</h3 ><ul class=" flex_item">  <li > Height: '
+        + repository[i].height
+    + 'm </li> <li>'
+    +repository[i].types
+    + '</li></ul>'
+    + '<div  class=" flex_item"> That\'s the bigger one!'
+    +' </div><br><br></div>');
+  }
+  else {
+    document.write(
+      '<div class="grid__item flex_grid">  <h3 class=" flex_item">'
+    + repository[i].name
+    + '</h3 ><ul class=" flex_item"> <li > Height: '
+    + repository[i].height
+    + 'm </li> <li>'
+    +repository[i].types
+    + '</li></ul>'
+    + '<div  class=" flex_item"> That\'s not the bigger one '
+    +'<br></div><br></div>');
+
+  }
+
+
+
+}
+
+document.write('</div>');
+
+
+
 
 function theBiggerOne () {
   var theHighest= 0;
@@ -30,18 +74,4 @@ function theBiggerOne () {
       repository[j].height
   }
   return pos;
-}
-
-var pos = theBiggerOne();
-
-document.write('<div class="grid">');
-for (var i=0; i<repository.length; i++){
-
-  document.write('<div class="grid__item"> <br> <h3>' + repository[i].name + '</h3><ul> <li> Height: '+ repository[i].height+ 'm </li> <li>' +repository[i].types + '</li></ul>');
-  if ( i=== pos){
-  document.write(' That\'s the bigger one!');
-
-  document.write('<br>' + '<br></div>')
-  }
-document.write('</div>');
 }
