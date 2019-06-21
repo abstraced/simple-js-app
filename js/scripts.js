@@ -1,4 +1,5 @@
-var repository= [
+var pokemonRepository= function() {
+   var repository = [
   {name:"Bulbasaur",
   height:0.7,
   types:['grass', 'poison'],
@@ -16,20 +17,51 @@ var repository= [
   types:['grass','rock']
   }
 ]
+return {
 
-var theBigger = theBiggerOne(repository);
+  add: function ( pokemon) {
+
+    var newPokemon = Object.keys(pokemon);
+    var repo = Object.keys(repository[0]);
+
+
+     if ( typeof pokemon === 'object' )  {
+     // if ( typeof pokemon === 'object'  && newPokemon === repo ) {  //
+      repository.push(pokemon);
+
+      console.log('pokemon added!');}
+  else {
+    console.log( ' not an object');
+    console.log(Object.keys(pokemon));
+    console.log(Object.keys(repository[0]));
+    console.log (typeof pokemon);
+  }
+  },
+  getAll: function() {
+    return repository;
+  },
+};
+}();
 
 
 
+
+pokemonRepository.add({name:"Jakobo",
+height:2,
+types:['feces', 'stone'],
+})
+
+
+var theBigger = theBiggerOne(pokemonRepository.getAll());
 
 
 document.write('<div class="grid">');
 
-repository.forEach (function(arrayItem) {
+pokemonRepository.getAll().forEach (function(arrayItem) {
   var x= arrayItem;
   if ( x.name=== theBigger){
     document.write(
-      '<div class="grid__item flex_grid">  <h3 class=" flex_item">'
+      '<div class="grid__item flex_grid">  <h3 class=" flex_item name">'
         + x.name
         + '</h3 ><ul class=" flex_item">  <li > Height: '
         + x.height
@@ -41,7 +73,7 @@ repository.forEach (function(arrayItem) {
   }
   else {
     document.write(
-      '<div class="grid__item flex_grid">  <h3 class=" flex_item">'
+      '<div class="grid__item flex_grid">  <h3 class=" flex_item name">'
     + x.name
     + '</h3 ><ul class=" flex_item"> <li > Height: '
     + x.height
@@ -53,6 +85,8 @@ repository.forEach (function(arrayItem) {
 
   }
 });
+
+
 
 
 document.write('</div>');
