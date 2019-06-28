@@ -1,31 +1,14 @@
+
+
 var pokemonRepository= function() {
-   var repository = [
-  {name:"Bulbasaur",
-  height:0.7,
-  types:['grass', 'poison'],
-  },
-  {name:"Pikachu",
-  height:0.4,
-  types:['electric']
-  },
-  {name:"Machop",
-  height:0.8,
-  types:['fighting']
-  },
-  {name:"Lileep",
-  height:1,
-  types:['grass','rock']
+   var repository = [];
   }
 ]
 return {
 
   add: function ( pokemon) {
 
-    var newPokemon = Object.keys(pokemon);
-    var repo = Object.keys(repository[0]);
-
-
-     if ( typeof pokemon === 'object' )  {
+  if ( typeof pokemon === 'object' )  {
      // if ( typeof pokemon === 'object'  && newPokemon === repo ) {  //
       repository.push(pokemon);
 
@@ -37,13 +20,42 @@ return {
     console.log (typeof pokemon);
   }
   },
+
   getAll: function() {
     return repository;
   },
+
+  addListItem: function(pokemon){
+    var $listItem = document.createElement('li');
+    var $button = document.createElement('button');
+
+    $button.classList.add('button');
+    $button.innerText = pokemon.name;
+    $button.addEventListener('click',function(event){
+      pokemonRepository.showDetails(pokemon);
+    }
+  );
+    // $button.addEventListener('click',function(){
+    //    console.log(' il a cliqué sur    ' + pokemon.name );
+    //
+    // });
+
+
+    $listItem.appendChild($button);
+    $pokemonList.appendChild($listItem);
+  },
+  showDetails: function(pokemon) {
+    console.log('Name:' + pokemon.name + 'Height: '+ pokemon.height + ' Types: ' + pokemon.type)
+  },
+
 };
 }();
 
+var $title =  document.querySelector('.title');
+$title.addEventListener('click',function(){
+console.log( " il a cliquéeee");
 
+});
 
 
 pokemonRepository.add({name:"Jakobo",
@@ -55,41 +67,25 @@ types:['feces', 'stone'],
 var theBigger = theBiggerOne(pokemonRepository.getAll());
 
 
-document.write('<div class="grid">');
 
+
+/// SOMETHING ISN't working here
+var $pokemonList = document.querySelector('.pokemon-list');
+
+
+////
 pokemonRepository.getAll().forEach (function(arrayItem) {
   var x= arrayItem;
-  if ( x.name=== theBigger){
-    document.write(
-      '<div class="grid__item flex_grid">  <h3 class=" flex_item name">'
-        + x.name
-        + '</h3 ><ul class=" flex_item">  <li > Height: '
-        + x.height
-    + 'm </li> <li>'
-    +x.types
-    + '</li></ul>'
-    + '<div  class=" flex_item"> That\'s the bigger one!'
-    +' </div></div>');
-  }
-  else {
-    document.write(
-      '<div class="grid__item flex_grid">  <h3 class=" flex_item name">'
-    + x.name
-    + '</h3 ><ul class=" flex_item"> <li > Height: '
-    + x.height
-    + 'm </li> <li>'
-    + x.types
-    + '</li></ul>'
-    + '<div  class=" flex_item"> That\'s not the bigger one '
-    +'</div></div>');
+ pokemonRepository.addListItem(x);
 
-  }
+
+
+
+
 });
 
 
 
-
-document.write('</div>');
 
 
 
